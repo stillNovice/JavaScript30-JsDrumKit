@@ -1,0 +1,108 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>PLAY MY MUSIC!</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <div class="keys">
+      
+      <div class="key-elements" data-key="65">
+        <kbd>A</kbd>
+      </div>
+
+      <div class="key-elements" data-key="83">
+        <kbd>S</kbd>
+      </div>
+
+      <div class="key-elements" data-key="68">
+        <kbd>D</kbd>
+      </div>
+ 
+      <div class="key-elements" data-key="70">
+        <kbd>F</kbd>
+      </div>
+
+      <div class="key-elements" data-key="71">
+        <kbd>G</kbd>
+      </div>
+
+      <div class="key-elements" data-key="72">
+        <kbd>H</kbd>
+      </div>
+
+      <div class="key-elements" data-key="74">
+        <kbd>J</kbd>
+      </div>
+
+      <div class="key-elements" data-key="75">
+        <kbd>K</kbd>
+      </div>
+ 
+      <div class="key-elements" data-key="76">
+        <kbd>L</kbd>
+      </div>
+
+    </div>
+
+
+    <audio data-key="65">
+      <source src="audio/clap.wav" type="audio/wav">
+    </audio>
+
+    <audio data-key="83">
+      <source src="audio/hihat.wav" type="audio/wav">
+    </audio>
+
+    <audio data-key="68">
+      <source src="audio/kick.wav" type="audio/wav">
+    </audio>
+
+    <audio data-key="70">
+      <source src="audio/openhat.wav" type="audio/wav">
+    </audio>
+
+    <audio data-key="71">
+      <source src="audio/boom.wav" type="audio/wav">
+    </audio>
+
+    <audio data-key="72">
+      <source src="audio/ride.wav" type="audio/wav">
+    </audio>
+
+    <audio data-key="74">
+      <source src="audio/snare.wav" type="audio/wav">
+    </audio>
+
+    <audio data-key="75">
+      <source src="audio/tom.wav" type="audio/wav">
+    </audio>
+
+    <audio data-key="76">
+      <source src="audio/tink.wav" type="audio/wav">
+    </audio>
+
+  </body>
+
+  <script>
+    window.addEventListener("keydown", function(event) {
+      let keyCode = event.keyCode;
+      const divElem = document.querySelector('.key-elements[data-key="' + keyCode + '"]');
+      const audioElem = document.querySelector('audio[data-key="' + keyCode + '"]');
+
+      if(!divElem) return;
+      
+      divElem.classList.add("animate");
+      audioElem.play();
+      audioElem.currentTime = 0;
+
+      divElem.addEventListener('transitionend', function(event) {
+        //console.log(event);
+        event.target.classList.remove("animate");
+      });
+    });
+  </script>
+  
+</html>>

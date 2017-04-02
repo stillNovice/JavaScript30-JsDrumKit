@@ -1,0 +1,27 @@
+body {
+  /*background-image: url("./images/music.jpg");*/
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover; 
+}
+
+.keys {
+  display: flex;
+  min-height: 90vh;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.key-elements {
+  border-style: dotted;
+  border-color: red;
+  padding: 30px 30px 30px 30px;
+  margin: 1rem;
+  transition: all 0.90s ease;
+}
+
+.animate {
+  /*transform: scale(1.5);*/
+  transform: rotate(360deg);
+}
